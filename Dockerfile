@@ -12,7 +12,7 @@ RUN cd /usr/bin \
     && ln -s python3 python
 
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 21.2.3
+ENV PYTHON_PIP_VERSION 21.3.1
 # https://github.com/pypa/get-pip
 ENV PYTHON_GET_PIP_URL https://github.com/pypa/get-pip/raw/c20b0cfd643cd4a19246ccf204e2997af70f6b21/public/get-pip.py
 ENV PYTHON_GET_PIP_SHA256 fa6f3fb93cce234cd4e8dd2beb54a51ab9c247653b52855a48dd44e6b21ff28b
@@ -43,6 +43,7 @@ ENV PYTHONFAULTHANDLER=1 \
     PIP_NO_CACHE_DIR=off \
     PIP_DISABLE_PIP_VERSION_CHECK=on \
     PIP_DEFAULT_TIMEOUT=100 \
-    POETRY_VERSION=1.1.5
+    POETRY_VERSION=1.1.11
+    PIPENV_VERSION=2021.11.23
 
-RUN  pip install "poetry==$POETRY_VERSION"
+RUN  pip install "poetry==$POETRY_VERSION" "pipenv==$PIPENV_VERSION"
