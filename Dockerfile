@@ -3,9 +3,9 @@ FROM nvidia/cuda:11.2.2-cudnn8-devel-ubuntu18.04
 RUN apt-get update && apt-get install -y build-essential software-properties-common git wget curl && \
     add-apt-repository -y ppa:deadsnakes/ppa
 
-RUN apt-get update && apt-get install -y python3.7-dev
+RUN apt-get update && apt-get install -y python3.8 python3-distutils
 
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
 
 # make some useful symlinks that are expected to exist
 RUN cd /usr/bin \
