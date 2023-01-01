@@ -1,6 +1,8 @@
 FROM nvidia/cuda:11.3.0-cudnn8-devel-ubuntu20.04
 
-RUN apt-get update && apt-get install -y build-essential software-properties-common git wget curl && \
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y build-essential software-properties-common git wget curl && \
     add-apt-repository -y ppa:deadsnakes/ppa
 
 RUN apt-get update && apt-get install -y python3.9 python3-distutils
